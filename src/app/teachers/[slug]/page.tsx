@@ -166,7 +166,7 @@ export default async function TeacherDetailPage({ params }: { params: Promise<{ 
                   <h2 className="text-2xl font-bold mb-4">Khóa học giảng dạy</h2>
                   <div className="grid gap-6 md:grid-cols-2">
                     {teacherCourses.map((course) => (
-                      <Card key={course.id} className="h-full flex flex-col">
+                      <Card key={course.id} className="h-full flex flex-col px-6">
                         <div className="relative aspect-video overflow-hidden">
                           <Image
                             src={course.image || "/placeholder.svg"}

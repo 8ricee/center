@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -5,8 +7,65 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin, Clock } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react";
+import { toast } from 'sonner';
 
 export default function ContactPage() {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setLoading(true);
+
+    const target = event.target as HTMLFormElement;
+    const formData = {
+      name: (target.elements.namedItem("name") as HTMLInputElement).value.trim(),
+      phone: (target.elements.namedItem("phone") as HTMLInputElement).value.trim(),
+      email: (target.elements.namedItem("email") as HTMLInputElement).value.trim(),
+      subject: (target.elements.namedItem("subject") as HTMLInputElement).value.trim(),
+      message: (target.elements.namedItem("message") as HTMLTextAreaElement).value.trim(),
+    };
+
+    if (!/^[\p{L}\s]{3,50}$/u.test(formData.name)) {
+      toast.error("Họ và tên không hợp lệ!");
+      setLoading(false);
+      return;
+    }
+    if (!/^\d{10,11}$/.test(formData.phone)) {
+      toast.error("Số điện thoại không hợp lệ!");
+      setLoading(false);
+      return;
+    }
+    if (!/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(formData.email)) {
+      toast.error("Email không hợp lệ!");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (result.status === "success") {
+        toast.success("Gửi tin nhắn thành công!");
+        (event.target as HTMLFormElement).reset();
+      } else {
+        toast.error(result.message || "Đã xảy ra lỗi khi gửi tin nhắn!");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Gửi tin nhắn thất bại!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -122,35 +181,35 @@ export default function ContactPage() {
 
             <div>
               <h2 className="text-2xl font-bold mb-6">Gửi tin nhắn cho chúng tôi</h2>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="name">Họ và tên</Label>
-                    <Input id="name" placeholder="Nhập họ và tên của bạn" />
+                    <Input id="name" name="name" placeholder="Nhập họ và tên của bạn" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">Số điện thoại</Label>
-                    <Input id="phone" placeholder="Nhập số điện thoại của bạn" />
+                    <Input id="phone" name="phone" placeholder="Nhập số điện thoại của bạn" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="Nhập địa chỉ email của bạn" />
+                  <Input id="email" name="email" type="email" placeholder="Nhập địa chỉ email của bạn" />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="subject">Chủ đề</Label>
-                  <Input id="subject" placeholder="Nhập chủ đề" />
+                  <Input id="subject" name="subject" placeholder="Nhập chủ đề" />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message">Nội dung</Label>
-                  <Textarea id="message" placeholder="Nhập nội dung tin nhắn" className="min-h-[150px]" />
+                  <Textarea id="message" name="message" placeholder="Nhập nội dung tin nhắn" className="min-h-[150px]" />
                 </div>
 
-                <Button type="submit" className="w-full">
-                  Gửi tin nhắn
+                <Button type="submit" disabled={loading} className="w-full">
+                  {loading ? "Đang gửi..." : "Gửi tin nhắn"}
                 </Button>
               </form>
             </div>
@@ -171,4 +230,3 @@ export default function ContactPage() {
     </div>
   )
 }
-

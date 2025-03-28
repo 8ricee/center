@@ -200,7 +200,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                                 src={teacher.avatar || "/placeholder.svg"}
                                 alt={teacher.name}
                                 fill
-                                className="object-cover"
+                                className="object-cover rounded-lg px-3"
                               />
                             </div>
                             <div className="p-6 md:w-2/3">

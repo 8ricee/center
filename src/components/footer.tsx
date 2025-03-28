@@ -1,10 +1,57 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react"
 import { ModeToggle } from "@/components/mode-toggle"
+import { useState } from "react";
+import { toast } from 'sonner';
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setLoading(true);
+
+    if (!email) {
+      toast.error("Vui lòng nhập địa chỉ email.");
+      setLoading(false);
+      return;
+    }
+
+    if (!/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+      toast.error("Địa chỉ email không hợp lệ.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json();
+      if (result.status === "success") {
+        toast.success("Đăng ký nhận tin thành công!");
+        setEmail("");
+      } else {
+        toast.error(result.message || "Đã xảy ra lỗi khi đăng ký.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Đăng ký thất bại!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <footer className="">
       <div className="container px-4 py-12 md:py-16 md:px-6">
@@ -99,10 +146,18 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-bold">Đăng ký nhận tin</h3>
             <p className="text-sm text-muted-foreground">Nhận thông tin về khóa học mới và ưu đãi đặc biệt</p>
-            <div className="flex flex-col space-y-2">
-              <Input type="email" placeholder="Email của bạn" className="max-w-full" />
-              <Button>Đăng ký</Button>
-            </div>
+            <form onSubmit={handleSubscribe} className="flex flex-col space-y-2">
+              <Input
+                type="email"
+                placeholder="Email của bạn"
+                className="max-w-full"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Button type="submit" disabled={loading}>
+                {loading ? "Đang xử lý..." : "Đăng ký"}
+              </Button>
+            </form>
           </div>
         </div>
         <div className="mt-12 pt-6 border-t text-center text-sm text-muted-foreground">
@@ -112,4 +167,3 @@ export default function Footer() {
     </footer>
   )
 }
-

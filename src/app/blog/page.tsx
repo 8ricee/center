@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -7,8 +9,52 @@ import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Calendar, User } from "lucide-react"
 import { blogPosts, BlogPost } from "@/lib/database";
+import { useState } from "react";
+import { toast } from 'sonner';
 
 export default function BlogPage() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setLoading(true);
+
+    if (!email) {
+      toast.error("Vui lòng nhập địa chỉ email.");
+      setLoading(false);
+      return;
+    }
+
+    if (!/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+      toast.error("Địa chỉ email không hợp lệ.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json();
+      if (result.status === "success") {
+        toast.success("Đăng ký nhận tin thành công!");
+        setEmail("");
+      } else {
+        toast.error(result.message || "Đã xảy ra lỗi khi đăng ký.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Đăng ký thất bại!");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -108,9 +154,9 @@ export default function BlogPage() {
               </p>
             </div>
             <div className="w-full max-w-md space-y-2">
-              <form className="flex space-x-2">
-                <Input type="email" placeholder="Email của bạn" className="max-w-lg flex-1" />
-                <Button type="submit">Đăng ký</Button>
+              <form onSubmit={handleSubscribe} className="flex space-x-2">
+                <Input type="email" placeholder="Email của bạn" className="max-w-lg flex-1" onChange={(e) => setEmail(e.target.value)} />
+                <Button type="submit" disabled={loading}>{loading ? "Đang xử lý..." : "Đăng ký"}</Button>
               </form>
               <p className="text-xs text-muted-foreground">
                 Chúng tôi tôn trọng quyền riêng tư của bạn. Bạn có thể hủy đăng ký bất cứ lúc nào.
@@ -130,7 +176,7 @@ interface BlogPostCardProps {
 function BlogCard({ post }: BlogPostCardProps) {
   return (
     <Card className="flex flex-col h-full">
-      <CardHeader className="p-0">
+      <CardHeader className="px-6">
         <div className="relative aspect-video overflow-hidden rounded-t-lg">
           <Image
             src={post.image || "/placeholder.svg"}
