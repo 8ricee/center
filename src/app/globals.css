@@ -2,7 +2,6 @@
 @import "tw-animate-css";
 @config "../../tailwind.config.ts";
 
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -96,6 +95,7 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 173 59% 72%;
+    --font-inter: Inter, sans-serif;
   }
 
   .dark {
@@ -132,6 +132,10 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 173 59% 72%;
   }
+}
+
+body {
+  font-family: var(--font-inter);
 }
 
 @layer base {

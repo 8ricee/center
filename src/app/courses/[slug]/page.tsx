@@ -9,15 +9,16 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Calendar, Clock, Users, GraduationCap, CheckCircle, BookOpen, Target, MapPin } from "lucide-react"
 import { courses, teachers } from "@/lib/database"
 
-export default function CourseDetailPage({ params }: { params: { slug: string } }) {
-  const course = courses.find((course) => course.slug === params.slug)
+export default async function CourseDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const course = courses.find((course) => course.slug === resolvedParams.slug);
 
   if (!course) {
     notFound()
   }
 
   const courseTeachers = teachers.filter((teacher) => course.teacherIds.includes(teacher.id))
-//   const courseTestimonials = testimonials.filter((testimonial) => course.testimonialIds.includes(testimonial.id))
+  //   const courseTestimonials = testimonials.filter((testimonial) => course.testimonialIds.includes(testimonial.id))
   const relatedCourses = courses.filter((c) => course.relatedCourseIds.includes(c.id))
 
   return (

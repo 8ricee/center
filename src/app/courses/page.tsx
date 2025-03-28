@@ -143,7 +143,7 @@ interface CourseCardProps {
 
 function CourseCard({ course }: CourseCardProps) {
   return (
-    <Card className="flex flex-col h-full">
+    <Card className="flex flex-col h-full py-6">
       <CardHeader>
         <div className="relative aspect-video overflow-hidden rounded-lg mb-2">
           <Image

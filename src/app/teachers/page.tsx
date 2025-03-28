@@ -13,7 +13,7 @@ interface TeacherCardProps {
 
 function TeacherCard({ teacher }: TeacherCardProps) {
   return (
-    <Card className="flex flex-col h-full">
+    <Card className="flex flex-col h-full py-6">
       <CardHeader>
         <div className="flex justify-center mb-4">
           <div className="relative w-32 h-32 rounded-full overflow-hidden">

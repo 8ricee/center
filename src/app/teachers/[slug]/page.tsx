@@ -20,8 +20,9 @@ import {
 } from "lucide-react"
 import { teachers, courses } from "@/lib/database"
 
-export default function TeacherDetailPage({ params }: { params: { slug: string } }) {
-  const teacher = teachers.find((teacher) => teacher.slug === params.slug)
+export default async function TeacherDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const teacher = teachers.find((teacher) => teacher.slug === resolvedParams.slug);
 
   if (!teacher) {
     notFound()

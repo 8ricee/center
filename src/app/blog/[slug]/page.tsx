@@ -8,8 +8,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Calendar, Clock, User, MessageSquare, Facebook, Twitter, Linkedin } from "lucide-react"
 import { blogPosts } from "@/lib/database"
 
-export default function BlogDetailPage({ params }: { params: { slug: string } }) {
-  const post = blogPosts.find((post) => post.slug === params.slug)
+export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params
+  const post = blogPosts.find((post) => post.slug === resolvedParams.slug)
 
   if (!post) {
     notFound()
@@ -237,4 +238,3 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
     </div>
   )
 }
-

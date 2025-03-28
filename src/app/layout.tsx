@@ -5,10 +5,10 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin", "vietnamese"], variable: "--font-inter" })
 
 export const metadata = {
-  title: "Trung Tâm Ngoại Ngữ",
+  title: "Trung Tâm Ngoại Ngữ Kasumi",
   description: "Trung tâm đào tạo ngoại ngữ hàng đầu với đội ngũ giáo viên chuyên nghiệp",
 }
 
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="relative flex min-h-screen flex-col">
             <Header />
@@ -31,4 +31,3 @@ export default function RootLayout({
     </html>
   )
 }
-
