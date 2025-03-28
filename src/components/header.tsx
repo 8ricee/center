@@ -33,7 +33,7 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="font-bold text-xl">
-            LANGUAGE CENTER
+            KASUMI CENTER
           </Link>
         </div>
 

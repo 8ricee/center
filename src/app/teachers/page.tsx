@@ -137,7 +137,7 @@ export default function TeachersPage() {
               </h2>
               <p className="max-w-[600px] md:text-xl/relaxed">
                 Chúng tôi luôn tìm kiếm những giảng viên tài năng và nhiệt huyết để cùng nhau phát triển. Nếu bạn có đam
-                mê giảng dạy và muốn trở thành một phần của Language Center, hãy liên hệ với chúng tôi ngay hôm nay.
+                mê giảng dạy và muốn trở thành một phần của Kasumi Center, hãy liên hệ với chúng tôi ngay hôm nay.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row lg:justify-end">

@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container px-4 py-12 md:py-16 md:px-6">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <h3 className="text-lg font-bold">LANGUAGE CENTER</h3>
+            <h3 className="text-lg font-bold">KASUMI CENTER</h3>
             <p className="text-sm text-muted-foreground">
               Trung tâm đào tạo ngoại ngữ hàng đầu với đội ngũ giáo viên chuyên nghiệp và phương pháp giảng dạy hiện
               đại.
@@ -104,7 +104,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-6 border-t text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Language Center. Tất cả quyền được bảo lưu.</p>
+          <p>© {new Date().getFullYear()} Kasumi Center. Tất cả quyền được bảo lưu.</p>
         </div>
       </div>
     </footer>

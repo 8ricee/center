@@ -12,7 +12,7 @@ export default function AboutPage() {
             <div className="space-y-4">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Về chúng tôi</h1>
               <p className="text-muted-foreground md:text-xl">
-                Language Center là trung tâm đào tạo ngoại ngữ hàng đầu với sứ mệnh mang đến những khóa học chất lượng
+                Kasumi Center là trung tâm đào tạo ngoại ngữ hàng đầu với sứ mệnh mang đến những khóa học chất lượng
                 cao, giúp học viên phát triển kỹ năng ngôn ngữ một cách toàn diện và hiệu quả.
               </p>
             </div>
@@ -45,12 +45,12 @@ export default function AboutPage() {
             <div className="order-1 lg:order-2 space-y-4">
               <h2 className="text-3xl font-bold tracking-tighter">Câu chuyện của chúng tôi</h2>
               <p className="text-muted-foreground">
-                Language Center được thành lập vào năm 2010 với tầm nhìn trở thành trung tâm đào tạo ngoại ngữ hàng đầu
+                Kasumi Center được thành lập vào năm 2010 với tầm nhìn trở thành trung tâm đào tạo ngoại ngữ hàng đầu
                 tại Việt Nam. Từ những ngày đầu với chỉ 3 lớp học và 5 giáo viên, chúng tôi đã không ngừng phát triển và
                 mở rộng.
               </p>
               <p className="text-muted-foreground">
-                Đến nay, Language Center đã có hơn 10 chi nhánh trên toàn quốc, đội ngũ hơn 100 giáo viên chuyên nghiệp
+                Đến nay, Kasumi Center đã có hơn 10 chi nhánh trên toàn quốc, đội ngũ hơn 100 giáo viên chuyên nghiệp
                 và đã đào tạo thành công cho hơn 50,000 học viên. Chúng tôi tự hào về hành trình phát triển và những
                 thành tựu đã đạt được.
               </p>
@@ -135,7 +135,7 @@ export default function AboutPage() {
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold tracking-tighter">Đội ngũ lãnh đạo</h2>
             <p className="mt-4 text-muted-foreground md:text-xl max-w-[800px] mx-auto">
-              Những người đứng sau sự thành công của Language Center
+              Những người đứng sau sự thành công của Kasumi Center
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
