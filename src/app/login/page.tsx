@@ -13,17 +13,17 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted py-12">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-hero py-12">
       <div className="container px-4 md:px-6">
         <div className="mx-auto grid w-full max-w-md gap-6">
           <Tabs defaultValue="login" className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
+            <TabsList className="grid w-full grid-cols-2 bg-gradient-hero">
               <TabsTrigger value="login">Đăng nhập</TabsTrigger>
               <TabsTrigger value="register">Đăng ký</TabsTrigger>
             </TabsList>
 
             <TabsContent value="login">
-              <Card>
+              <Card className="py-6">
                 <CardHeader className="space-y-1">
                   <CardTitle className="text-2xl font-bold">Đăng nhập</CardTitle>
                   <CardDescription>Nhập thông tin đăng nhập của bạn để truy cập vào tài khoản</CardDescription>
@@ -82,7 +82,7 @@ export default function LoginPage() {
             </TabsContent>
 
             <TabsContent value="register">
-              <Card>
+              <Card className="py-6">
                 <CardHeader className="space-y-1">
                   <CardTitle className="text-2xl font-bold">Đăng ký tài khoản</CardTitle>
                   <CardDescription>Nhập thông tin của bạn để tạo tài khoản mới</CardDescription>
@@ -121,7 +121,7 @@ export default function LoginPage() {
                             type="button"
                             variant="ghost"
                             size="icon"
-                            className="absolute right-2 top-1/2 -translate-y-1/2"
+                            className="absolute right-0 top-1/2 -translate-y-1/2 "
                             onClick={() => setShowPassword(!showPassword)}
                           >
                             {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}

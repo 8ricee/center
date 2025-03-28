@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react"
+import { ModeToggle } from "@/components/mode-toggle"
 
 export default function Footer() {
   return (
@@ -34,6 +35,7 @@ export default function Footer() {
                 </Link>
               </Button>
             </div>
+            <ModeToggle />
           </div>
           <div className="space-y-4">
             <h3 className="text-lg font-bold">Liên kết nhanh</h3>
