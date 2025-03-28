@@ -20,7 +20,7 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-muted">
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-4">
             <div className="flex justify-center">
@@ -110,7 +110,7 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
                   <div className="flex flex-wrap gap-2">
                     {post.tags.map((tag, index) => (
                       <Link key={index} href={`/blog/tag/${tag}`}>
-                        <Badge variant="outline" className="hover:bg-muted">
+                        <Badge variant="outline" className="hover:bg-gradient-hero">
                           #{tag}
                         </Badge>
                       </Link>
@@ -147,7 +147,7 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
 
               <div className="border-t pt-8 mt-8">
                 <h2 className="text-2xl font-bold mb-6">Bình luận</h2>
-                <div className="bg-muted p-6 rounded-lg text-center">
+                <div className="bg-gradient-hero p-6 rounded-lg text-center">
                   <MessageSquare className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
                   <p className="text-muted-foreground mb-4">Hãy để lại bình luận của bạn</p>
                   <Button>Đăng nhập để bình luận</Button>
@@ -159,7 +159,7 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
       </section>
 
       {/* Related Posts */}
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-muted">
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <h2 className="text-2xl font-bold text-center mb-10">Bài viết liên quan</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

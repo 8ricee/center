@@ -12,7 +12,7 @@ export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -36,7 +36,7 @@ export default function BlogPage() {
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
                 <Link key={category} href={`/blog/category/${category.toLowerCase()}`}>
-                  <Badge variant="outline" className="hover:bg-muted">
+                  <Badge variant="outline" className="hover:bg-gradient-hero">
                     {category}
                   </Badge>
                 </Link>
@@ -45,7 +45,7 @@ export default function BlogPage() {
           </div>
 
           <Tabs defaultValue="all" className="w-full">
-            <TabsList className="grid w-full max-w-md grid-cols-4 mx-auto">
+            <TabsList className="grid w-full max-w-md grid-cols-4 mx-auto bg-gradient-hero">
               <TabsTrigger value="all">Tất cả</TabsTrigger>
               <TabsTrigger value="news">Tin tức</TabsTrigger>
               <TabsTrigger value="tips">Mẹo học</TabsTrigger>
@@ -98,7 +98,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">

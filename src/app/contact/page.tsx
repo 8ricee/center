@@ -10,7 +10,7 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -159,7 +159,7 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="w-full py-12 bg-muted">
+      <section className="w-full py-12 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <h2 className="text-2xl font-bold mb-6 text-center">Bản đồ</h2>
           <div className="w-full h-[400px] bg-gray-200 rounded-lg flex items-center justify-center">

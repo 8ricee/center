@@ -5,7 +5,7 @@ import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-muted">
+    <footer className="">
       <div className="container px-4 py-12 md:py-16 md:px-6">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">

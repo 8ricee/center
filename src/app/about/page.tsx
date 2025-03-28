@@ -6,7 +6,7 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="space-y-4">
@@ -18,7 +18,7 @@ export default function AboutPage() {
             </div>
             <div className="mx-auto lg:mx-0 relative aspect-video overflow-hidden rounded-xl">
               <Image
-                src="/placeholder.svg?height=720&width=1280"
+                src="/image/1.jpg?height=720&width=1280"
                 alt="Trung tâm ngoại ngữ"
                 width={1280}
                 height={720}
@@ -35,7 +35,7 @@ export default function AboutPage() {
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="order-2 lg:order-1 mx-auto lg:mx-0 relative aspect-video overflow-hidden rounded-xl">
               <Image
-                src="/placeholder.svg?height=720&width=1280"
+                src="/image/2.jpg?height=720&width=1280"
                 alt="Lịch sử phát triển"
                 width={1280}
                 height={720}
@@ -64,7 +64,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold tracking-tighter">Sứ mệnh & Tầm nhìn</h2>
@@ -130,7 +130,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Team */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold tracking-tighter">Đội ngũ lãnh đạo</h2>
@@ -198,28 +198,28 @@ const coreValues = [
 
 const teamMembers = [
   {
-    name: "Nguyễn Văn A",
+    name: "Nguyễn Thị Hồng Vân",
     position: "Giám đốc điều hành",
     description: "Hơn 15 năm kinh nghiệm trong lĩnh vực giáo dục và đào tạo ngoại ngữ",
-    avatar: "/placeholder.svg?height=200&width=200",
+    avatar: "/avatar/7.jpg?height=200&width=200",
   },
   {
-    name: "Trần Thị B",
+    name: "Nguyễn Thị Hồng Vân",
     position: "Giám đốc học thuật",
     description: "Tiến sĩ ngôn ngữ học, 10 năm kinh nghiệm giảng dạy tại các trường đại học",
-    avatar: "/placeholder.svg?height=200&width=200",
+    avatar: "/avatar/7.jpg?height=200&width=200",
   },
   {
-    name: "Lê Văn C",
+    name: "Nguyễn Thị Hồng Vân",
     position: "Trưởng phòng đào tạo",
     description: "Chuyên gia phát triển chương trình đào tạo với nhiều năm kinh nghiệm",
-    avatar: "/placeholder.svg?height=200&width=200",
+    avatar: "/avatar/7.jpg?height=200&width=200",
   },
   {
-    name: "Phạm Thị D",
+    name: "Nguyễn Thị Hồng Vân",
     position: "Trưởng phòng tư vấn",
     description: "Chuyên gia tư vấn giáo dục với kinh nghiệm làm việc tại nhiều tổ chức quốc tế",
-    avatar: "/placeholder.svg?height=200&width=200",
+    avatar: "/avatar/7.jpg?height=200&width=200",
   },
 ]
 

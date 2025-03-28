@@ -145,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <ScrollAnimation animation="animate-fade-up">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">

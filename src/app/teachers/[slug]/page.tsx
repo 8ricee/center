@@ -32,7 +32,7 @@ export default function TeacherDetailPage({ params }: { params: { slug: string }
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-muted">
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="space-y-4">
@@ -102,7 +102,7 @@ export default function TeacherDetailPage({ params }: { params: { slug: string }
           <div className="grid gap-10 lg:grid-cols-3">
             <div className="lg:col-span-2">
               <Tabs defaultValue="about" className="w-full">
-                <TabsList className="grid w-full grid-cols-3">
+                <TabsList className="grid w-full grid-cols-3 bg-gradient-hero">
                   <TabsTrigger value="about">Giới thiệu</TabsTrigger>
                   <TabsTrigger value="courses">Khóa học</TabsTrigger>
                   <TabsTrigger value="schedule">Lịch giảng dạy</TabsTrigger>
@@ -246,7 +246,7 @@ export default function TeacherDetailPage({ params }: { params: { slug: string }
                     ))}
                   </div>
 
-                  <div className="bg-muted p-6 rounded-lg mt-8">
+                  <div className="bg-gradient-hero p-6 rounded-lg mt-8">
                     <h3 className="text-lg font-bold mb-3">Đặt lịch học với giảng viên</h3>
                     <p className="text-muted-foreground mb-4">
                       Bạn có thể đặt lịch học trực tiếp với giảng viên {teacher.name} thông qua form dưới đây hoặc liên

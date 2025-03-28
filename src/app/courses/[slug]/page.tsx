@@ -23,7 +23,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-muted">
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="space-y-4">
@@ -82,7 +82,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
           <div className="grid gap-10 lg:grid-cols-3">
             <div className="lg:col-span-2">
               <Tabs defaultValue="overview" className="w-full">
-                <TabsList className="grid w-full grid-cols-4">
+                <TabsList className="grid w-full grid-cols-4 bg-gradient-hero">
                   <TabsTrigger value="overview">Tổng quan</TabsTrigger>
                   <TabsTrigger value="curriculum">Chương trình</TabsTrigger>
                   <TabsTrigger value="teachers">Giảng viên</TabsTrigger>
@@ -409,7 +409,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
       </section>
 
       {/* Related Courses */}
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-muted">
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-hero">
         <div className="container px-4 md:px-6">
           <h2 className="text-2xl font-bold text-center mb-10">Khóa học liên quan</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
